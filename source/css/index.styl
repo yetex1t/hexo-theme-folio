@@ -490,7 +490,7 @@ blockquote
 
 .social-links
   display grid
-  grid-template-columns 0.8fr 0.8fr
+  grid-template-columns auto auto
   gap .4rem
   list-style-type none
   margin-top .3rem
@@ -502,12 +502,17 @@ blockquote
 
   .e-social-link
     color black
+    display flex
+    align-items flex-start
     .fa,
     .fas,
     .fab
-      width: 1.5rem
-      text-align: center
-      margin-right: 0.5rem
+      flex-shrink 0
+      width 1.5rem
+      text-align center
+      margin-top .25em
+    span
+      padding-left .5rem
   li
     margin-bottom 0
   a.e-social-link
