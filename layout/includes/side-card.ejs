@@ -12,11 +12,10 @@
       <% function isExternalLink(link) {
            return /^(https?:)?\/\//.test(link) || /^(mailto|tel):/.test(link);
          }
-
-          function toLink(link) {
-            if (!link) return '';
-            return isExternalLink(link) ? link : url_for(link);
-          } %>
+         function toLink(link) {
+           if (!link) return '';
+           return isExternalLink(link) ? link : url_for(link);
+         } %>
       <% if (theme.social && theme.social.enable) { %>
         <ul class="social-icons">
           <% (theme.social_links || []).forEach(function(link) {
@@ -48,30 +47,30 @@
           <% }); %>
         </ul>
       <% } %>
-      <% if (theme.e_social && theme.e_social.enable) { %>
-        <ul class="social-links">
-          <% (theme.e_social_links || []).forEach(function(link) {
-               if (!link.enable) return;
-               const href = toLink(link.url);
-               const isUrl = !!(link.url && (isExternalLink(link.url) || String(link.url).charAt(0) === '/'));
-          %>
-            <li>
-              <% if (isUrl) { %>
-                <a class="e-social-link" href="<%= href %>" target="_blank">
+    </div>
+    <% if (theme.e_social && theme.e_social.enable) { %>
+      <ul class="social-links">
+        <% (theme.e_social_links || []).forEach(function(link) {
+             if (!link.enable) return;
+             const href = toLink(link.url);
+             const isUrl = !!(link.url && (isExternalLink(link.url) || String(link.url).charAt(0) === '/'));
+        %>
+          <li>
+            <% if (isUrl) { %>
+               <a class="e-social-link" href="<%= href %>" target="_blank">
                   <i class="<%= link.icon %>" aria-hidden="true"></i>
                   <span><%= link.name %></span>
                 </a>
-              <% } else { %>
-                <span class="e-social-link">
-                  <i class="<%= link.icon %>" aria-hidden="true"></i>
-                  <span><%= link.name %></span>
-                </span>
-              <% } %>
-            </li>
-          <% }); %>
-        </ul>
-      <% } %>
-    </div>
+            <% } else { %>
+              <span class="e-social-link">
+                <i class="<%= link.icon %>" aria-hidden="true"></i>
+                <span><%= link.name %></span>
+              </span>
+            <% } %>
+          </li>
+        <% }); %>
+      </ul>
+    <% } %>
     <% if (theme.cv_dl && theme.cv_dl.enable) { %>
       <a class="cv-links" href="<%= url_for(theme.cv_dl.dir) %>" target="_blank">
         <i class="fas fa-file-pdf" aria-hidden="true"><span><%= theme.cv_dl.description %></span></i>

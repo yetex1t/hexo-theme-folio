@@ -489,8 +489,13 @@ blockquote
   opacity 1
 
 .social-links
-  display none
+  display grid
+  grid-template-columns 0.8fr 0.8fr
+  gap .4rem
   list-style-type none
+  margin-top .3rem
+  padding-left 5rem
+  padding-right 5rem
   cursor default
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -503,7 +508,11 @@ blockquote
       width: 1.5rem
       text-align: center
       margin-right: 0.5rem
-a.e-social-link:hover span
+  li
+    margin-bottom 0
+  a.e-social-link
+    text-decoration: none
+    &:hover
       text-decoration underline
 
 .cv-links
@@ -516,10 +525,6 @@ a.e-social-link:hover span
     text-decoration: underline;
     &::before
       margin-right: .5rem
-
-@media (min-width: 66.67em)
-  .side-card
-    padding-right: 0;
 
 @media (min-width: 34em)
   .side-card
@@ -588,6 +593,8 @@ a.e-social-link:hover span
     margin-top .8rem
     margin-bottom 1.6rem
     padding 0
+    li
+      margin-bottom: .8rem
 
   .cv-links
     margin: 0;
@@ -618,13 +625,13 @@ a.e-social-link:hover span
   clear: both
   margin-top: 0.8em
   padding: 0 2rem 0.8em
-  font-size: 1.28rem;
+  font-size: 1.3rem;
   text-align: center
 
 @media (max-width: 34em)
   .footer_wrap
     padding: 0 1rem 1em
-    font-size: 1rem
+    font-size: 1.25rem
     text-align: center
   #page_footer a
     word-break: break-word
