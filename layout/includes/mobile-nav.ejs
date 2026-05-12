@@ -1,0 +1,21 @@
+<div class="nav-wrap">
+  <div class="nav">
+    <button class="site-nav">
+      <div class="navicon"></div>
+    </button>
+    <ul class="nav_items">
+      <% const homeHref = url_for('/'); const homeActiveClass = is_current(homeHref) ? ' active' : ''; %>
+      <li class="nav_item">
+        <a class="nav-page<%= homeActiveClass %>" href="<%= homeHref %>"> Home</a>
+      </li>
+      <% (theme.menu || []).forEach(function(item) { if (!item.enable || !item.url) { return; } const href = url_for(item.url); const activeClass = is_current(href) ? ' active' : ''; %>
+        <li class="nav_item">
+          <a class="nav-page<%= activeClass %>" href="<%= href %>"> <%= item.name %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <div class="cd-top">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </div>
+</div>

@@ -1,0 +1,136 @@
+# ===========================================
+# ======== Folio Theme Configuration ========
+# ===========================================
+
+# Favicon path
+favicon: /img/theme-favicon.png
+# Sidebar avatar path
+avatar: /img/theme-profile.png
+# Sidebar short bio text
+author_bio: 'Your biography can be writed down here.'
+
+# Copyright start year
+since: 2026
+
+# Blog index page path.
+# '/' => blog list at root, '/blog' => blog list at /blog/
+blog_path: /blog
+
+# Post URL template body.
+# Final permalink = blog_path + '/' + post_permalink.
+# Example with blog_path: /blog -> /blog/:year/:title/
+post_permalink: :year/:title/
+
+# Show/Hide footer "Powered by" line
+powered:
+  enable: true
+
+# Mainland China ICP / public security record info
+beian:
+  enable: false
+  icp: ''
+  police:
+    enable: false
+    number: ''
+
+# Top navigation menu
+menu:
+  - id: publications
+    name: Publications
+    url: /publications
+    enable: true
+  - id: projects
+    name: Projects
+    url: /projects
+    enable: true
+  - id: blog
+    name: Blog
+    url: /blog
+    enable: true
+  - id: archives
+    name: Archives
+    url: /archives
+    enable: true
+
+# Icon-only social links.
+# url can be a link (external or relative path) to navigate to,
+# or a non-URL value (e.g. QQ number, email) for click-to-copy.
+social:
+  enable: true
+social_links:
+  - id: github
+    icon: fab fa-github
+    url: https://github.com
+    enable: true
+  - id: twitter
+    icon: fab fa-twitter
+    url: https://x.com
+    enable: true
+  - id: facebook
+    icon: fab fa-facebook-square
+    url: https://www.facebook.com
+    enable: true
+  - id: qq
+    icon: fab fa-qq
+    url: null
+    enable: true
+  - id: weixin
+    icon: fab fa-weixin
+    url: null
+    enable: true
+  - id: weibo
+    icon: fab fa-weibo
+    url: https://weibo.com
+    enable: true
+  - id: email
+    icon: fas fa-envelope
+    url: yourname@email.com
+    enable: true
+  - id: rss
+    icon: fas fa-rss
+    url: null
+    enable: true
+
+# Text social links with labels.
+e_social:
+  enable: true
+e_social_links:
+  - id: location
+    name: City, Country
+    url: null
+    icon: fas fa-map-marker-alt
+    enable: true
+  - id: google-scholar
+    name: Google Scholar
+    url: https://scholar.google.com
+    icon: fas fa-graduation-cap
+    enable: true
+  - id: orcid
+    name: ORCID
+    url: https://orcid.org
+    icon: fab fa-orcid
+    enable: true
+
+# CV download button
+cv_dl:
+  enable: true
+  dir: /attaches/theme-cv.pdf
+  description: My Detail CV.
+
+# Fallback image if avatar fails to load
+loading_bg:
+  flink: /img/theme-profile.png
+
+# Enable page/sidebar box shadow
+box_shadow:
+  enable: false
+
+# Theme assets (CSS/JS) loaded in <head>/<body>.
+# You can add/remove local files or CDN links.
+# Custom style file: source/css/user.styl
+CDN_USE:
+  css:
+    - /css/index.css
+    - https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css  # fontawesome 5
+  js:
+    - /js/main.js

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title><%= config.title %></title>
+    <meta name="author" content="<%= config.author %>">
+    <%- favicon_tag(config.favicon || theme.favicon || '/favicon.ico') %>
+    <% ((theme.CDN_USE && theme.CDN_USE.css) || []).forEach(function(item) { %>
+      <link rel="stylesheet" href="<%= url_for(item) %>">
+    <% }); %>
+  </head>
+  <body>
+    <header id="page_header"><%- partial('includes/header') %></header>
+    <main id="page_main">
+      <%- partial('includes/side-card') %>
+      <div class="page" itemscope itemtype="http://schema.org/Blog">
+        <h1 class="page-title"><%= page.title || 'Blog' %></h1>
+        <% if (page.content) { %>
+          <article><%- page.content %></article>
+        <% } %>
+        <% const posts = site.posts.sort('date', -1).data; %>
+        <% posts.forEach(function(article) { %>
+          <article class="post-item">
+            <header class="post-header">
+              <h2 class="post-title">
+                <a href="<%= url_for(article.path) %>"><%= article.title %></a>
+              </h2>
+              <div class="post-meta">
+                <time datetime="<%= date_xml(article.date) %>"><%= date(article.date, 'YYYY-MM-DD') %></time>
+              </div>
+            </header>
+            <div class="post-body">
+              <% if (article.excerpt) { %>
+                <%- article.excerpt %>
+                <a class="read-more" href="<%= url_for(article.path) %>">Read More</a>
+              <% } else { %>
+                <%- article.content %>
+              <% } %>
+            </div>
+          </article>
+        <% }); %>
+      </div>
+    </main>
+    <%- partial('includes/mobile-nav') %>
+    <footer id="page_footer"><%- partial('includes/footer') %></footer>
+    <% ((theme.CDN_USE && theme.CDN_USE.js) || []).forEach(function(item) { %>
+      <script src="<%= url_for(item) %>"></script>
+    <% }); %>
+  </body>
+</html>

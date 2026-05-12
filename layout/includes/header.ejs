@@ -1,0 +1,15 @@
+<div class="header_wrap">
+  <div id="blog_name">
+    <a id="site-name" class="blog_title" href="<%= url_for('/') %>">Home</a>
+  </div>
+  <button class="menus_icon">
+    <div class="navicon"></div>
+  </button>
+  <ul class="menus_items">
+      <% (theme.menu || []).forEach(function(item) { if (!item.enable || !item.url) { return; } const href = url_for(item.url); const activeClass = is_current(href) ? ' active' : ''; %>
+        <li class="menus_item">
+          <a class="site-page<%= activeClass %>" href="<%= href %>"> <%= item.name %></a>
+        </li>
+      <% }); %>
+  </ul>
+</div>

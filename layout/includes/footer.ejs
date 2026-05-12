@@ -1,0 +1,28 @@
+<div class="footer_wrap">
+  <% const now = new Date(); %>
+  <% const nowYear = now.getFullYear(); %>
+  <% if (theme.since && theme.since != nowYear) { %>
+    <div class="copyright"><%- `&copy;${theme.since} - ${nowYear} by ${config.author}` %></div>
+  <% } else { %>
+    <div class="copyright"><%- `&copy;${nowYear} by ${config.author}` %></div>
+  <% } %>
+  <% if (!theme.powered || theme.powered.enable !== false) { %>
+    <div class="theme-info">Powered by <a href="https://hexo.io" rel="nofollow">Hexo</a> &amp; <a href="https://github.com/yetex1t/hexo-theme-folio" rel="nofollow">Folio Theme</a></div>
+  <% } %>
+  <% if (theme.beian && theme.beian.enable) { %>
+    <div class="beian-info">
+      <% if (theme.beian.icp) { %>
+        <div class="icp">
+          <i class="fas fa-globe"></i>
+          <span><%- `  ${theme.beian.icp}` %></span>
+        </div>
+      <% } %>
+      <% if (theme.beian.police && theme.beian.police.enable) { %>
+        <div class="police-beian">
+          <i class="fas fa-shield-alt"></i>
+          <span><%- `  ${theme.beian.police.number}` %></span>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>

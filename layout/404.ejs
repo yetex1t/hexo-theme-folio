@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>404 Not Found | <%= config.title %></title>
+    <meta name="author" content="<%= config.author %>">
+    <%- favicon_tag(config.favicon || theme.favicon || '/favicon.ico') %>
+    <% ((theme.CDN_USE && theme.CDN_USE.css) || []).forEach(function(item) { %>
+      <link rel="stylesheet" href="<%= url_for(item) %>">
+    <% }); %>
+  </head>
+  <body>
+    <header id="page_header"><%- partial('includes/header') %></header>
+    <main id="page_main">
+      <%- partial('includes/side-card') %>
+      <div class="page" itemscope itemtype="http://schema.org/WebPage">
+        <h1 class="page-title">404 Not Found</h1>
+        <article>
+          <p>The page you requested does not exist.</p>
+          <p><a href="<%= url_for('/') %>">Back to Home</a></p>
+        </article>
+      </div>
+    </main>
+    <%- partial('includes/mobile-nav') %>
+    <footer id="page_footer"><%- partial('includes/footer') %></footer>
+    <% ((theme.CDN_USE && theme.CDN_USE.js) || []).forEach(function(item) { %>
+      <script src="<%= url_for(item) %>"></script>
+    <% }); %>
+  </body>
+</html>
